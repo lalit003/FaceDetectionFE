@@ -1,68 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+POM based Hybrid TDD Automation Framework
 
-## Available Scripts
+## Assumptions
+You have Android Studio installed and an emulator device configured within android studio. Prefered name of android device = "android_device" with min sdk version 16(i have tested it on sdk 30).
+if you want to use any other name you need to change the name also in "config.properties" file located in root directory.
 
-In the project directory, you can run:
 
-### `npm start`
+## Explanation of your selections, configurations and environment
+POM(page object model) - To ensure it's more readable, maintainable, and reusable. where each class holds funcionality of a single page. If something breaks in future we know where in Automation script to fix it.
+TestNG - Unit Testing Framework for making clean independent Test classes/cases. Also, comes with powerfull features like Annotations, Listeners, Reporting, Parallel Execution etc.
+Maven - To make compilation, distribution, dependency management easy.
+Appium - For automating cross platform mobile native, mobile web, and hybrid written in any language.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+configurations
+There is "config.properties" file
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## How to set up and execute test locally
+1. Install Java and set Java_Home env variable.
+2. Install Android Studio and set Android_Home env variable. 
+3. Setup an emulator with min sdk version 16.
+4. Install Maven v3.6.2 or later.
+5. Install Nodejs v6.9.0 or later.
+6. Install appium server v1.18.3 using "npm install -g appium".
+7. Start emulator by going to "C:\Users\${user_name}\AppData\Local\Android\Sdk\platform-tools" in cmd and type command "emulator -avd ${your_device_name}".
+8. Now run appium server by going to cmd and type "npm appium".
+9. Unzip the source code provided, import as maven project into any IDE(eclipe etc) and run as maven project.
+or Alrernativery simply go to the projecct root directory where pom.xml exists from command line and type "mvn test"
+10. Test will run on emulator device, you can see logs generated at runtime on console and once tests are completed TestNG report can be found under folder "target\surefire-reports\index.html".
