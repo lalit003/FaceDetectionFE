@@ -1,18 +1,21 @@
 POM based Hybrid TDD Automation Framework
 
 ## Assumptions
-You have Android Studio installed and an emulator device configured within android studio. Prefered name of android device = "android_device" with min sdk version 16(i have tested it on sdk 30).
-if you want to use any other name you need to change the name also in "config.properties" file located in root directory.
+1. You have Android Studio installed and an emulator device configured within android studio. Prefered name of android device = "android_device" with min sdk version 16(i have tested it on sdk 30).
+**if you want to use any other name you need to change the name also in "config.properties" file located in root directory.
 
 
 ## Explanation of your selections, configurations and environment
-POM(page object model) - To ensure it's more readable, maintainable, and reusable. where each class holds funcionality of a single page. If something breaks in future we know where in Automation script to fix it.
-TestNG - Unit Testing Framework for making clean independent Test classes/cases. Also, comes with powerfull features like Annotations, Listeners, Reporting, Parallel Execution etc.
-Maven - To make compilation, distribution, dependency management easy.
-Appium - For automating cross platform mobile native, mobile web, and hybrid written in any language.
+1. POM(page object model) - To ensure it's more readable, maintainable, and reusable. where each class holds funcionality of a single page. If something breaks in future we know where in Automation script to fix it.
+2. TestNG - Unit Testing Framework for making clean independent Test classes/cases. Also, comes with powerfull features like Annotations, Listeners, Reporting, Parallel Execution etc.
+3. Maven - To make compilation, distribution, dependency management easy.
+4. Appium - For automating cross platform mobile native, mobile web, and hybrid written in any language.
 
-configurations
-There is "config.properties" file
+configurations and project structure 
+1. Environment level config are present in "android/config.properties" - you can change "android_app_path", "app_name", "device_name", "appium_server" and "implicit_wait" from this file.
+2. Below are important files/packages/classes of project 
+"src/main/java" - contains Baseclass, POM pages and utilities packages.
+"src/test/java" - contains test.classes packagewhich contain class for each funcionality/Test.ie..currently there is only one test class "TestSignIn.java".
 
 ## How to set up and execute test locally
 1. Install Java and set Java_Home env variable.
